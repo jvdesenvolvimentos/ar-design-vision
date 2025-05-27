@@ -64,19 +64,29 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				ar: {
-					blue: '#3B82F6',
+					blue: '#1E3A8A',
+					'blue-light': '#3B82F6',
 					'blue-dark': '#1E40AF',
-					cyan: '#06B6D4',
-					purple: '#8B5CF6',
-					gradient: {
-						start: '#3B82F6',
-						end: '#06B6D4'
+					navy: '#0F172A',
+					white: '#FFFFFF',
+					gray: {
+						50: '#F8FAFC',
+						100: '#F1F5F9',
+						200: '#E2E8F0',
+						300: '#CBD5E1',
+						400: '#94A3B8',
+						500: '#64748B',
+						600: '#475569',
+						700: '#334155',
+						800: '#1E293B',
+						900: '#0F172A'
 					}
 				}
 			},
 			backgroundImage: {
-				'ar-gradient': 'linear-gradient(135deg, #3B82F6 0%, #06B6D4 100%)',
-				'ar-gradient-dark': 'linear-gradient(135deg, #1E40AF 0%, #0891B2 100%)',
+				'ar-gradient': 'linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%)',
+				'ar-gradient-dark': 'linear-gradient(135deg, #0F172A 0%, #1E3A8A 100%)',
+				'ar-gradient-light': 'linear-gradient(135deg, #F8FAFC 0%, #E2E8F0 100%)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -127,6 +137,14 @@ export default {
 					'50%': {
 						transform: 'translateY(-10px)'
 					}
+				},
+				'pulse-slow': {
+					'0%, 100%': {
+						opacity: '1'
+					},
+					'50%': {
+						opacity: '0.5'
+					}
 				}
 			},
 			animation: {
@@ -134,7 +152,8 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.3s ease-out',
 				'scale-in': 'scale-in 0.2s ease-out',
-				'float': 'float 3s ease-in-out infinite'
+				'float': 'float 3s ease-in-out infinite',
+				'pulse-slow': 'pulse-slow 3s ease-in-out infinite'
 			}
 		}
 	},
