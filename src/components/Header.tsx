@@ -1,5 +1,5 @@
 
-import { Camera, Menu, Search, Home, Folder, User, Phone, Palette, BookOpen, Settings } from "lucide-react";
+import { Camera, Menu, Search, Home, Folder, User, Phone, Palette, BookOpen, Settings, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -12,18 +12,36 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "@/hooks/useAuth";
+import { useToast } from "@/hooks/use-toast";
 
 const Header = () => {
   const navigate = useNavigate();
+  const { user, signOut } = useAuth();
+  const { toast } = useToast();
+
+  const handleSignOut = async () => {
+    await signOut();
+    toast({
+      title: "Logout realizado",
+      description: "Você foi desconectado com sucesso",
+    });
+    navigate("/");
+  };
+
+  const handleARClick = () => {
+    // Redireciona para o site externo
+    window.open("https://mobiliar.ct.ws/", "_blank");
+  };
 
   const menuItems = [
     { label: "Início", href: "/", icon: Home },
-    { label: "Projetos", href: "/projetos", icon: Folder },
+    { label: "Projetos", href: "/projetos", icon: Folder, protected: true },
     { label: "Catálogo", href: "/catalogo", icon: Search },
     { label: "Ambientes", href: "/ambientes", icon: Home },
     { label: "Materiais", href: "/materiais", icon: Palette },
     { label: "Tutoriais", href: "/tutoriais", icon: BookOpen },
-    { label: "Perfil", href: "/perfil", icon: User },
+    { label: "Perfil", href: "/perfil", icon: User, protected: true },
   ];
 
   return (
@@ -74,6 +92,15 @@ const Header = () => {
                         </Link>
                       </NavigationMenuLink>
                     ))}
+                    {user && (
+                      <button
+                        onClick={handleSignOut}
+                        className="flex items-center space-x-3 p-3 rounded-md hover:bg-ar-gray-100 transition-colors w-full text-left"
+                      >
+                        <LogOut className="w-5 h-5 text-ar-blue" />
+                        <span className="font-medium text-ar-gray-900">Sair</span>
+                      </button>
+                    )}
                   </div>
                 </NavigationMenuContent>
               </NavigationMenuItem>
@@ -94,19 +121,39 @@ const Header = () => {
 
           {/* Actions */}
           <div className="flex items-center space-x-4">
-            <Button 
-              variant="outline" 
-              className="hidden sm:flex border-ar-blue text-ar-blue hover:bg-ar-blue hover:text-white"
-              onClick={() => navigate("/projetos")}
-            >
-              Meus Projetos
-            </Button>
-            <Button 
-              className="bg-ar-gradient hover:bg-ar-gradient-dark text-white shadow-lg"
-              onClick={() => navigate("/ar-viewer")}
-            >
-              Iniciar AR
-            </Button>
+            {user ? (
+              <>
+                <Button 
+                  variant="outline" 
+                  className="hidden sm:flex border-ar-blue text-ar-blue hover:bg-ar-blue hover:text-white"
+                  onClick={() => navigate("/projetos")}
+                >
+                  Meus Projetos
+                </Button>
+                <Button 
+                  className="bg-ar-gradient hover:bg-ar-gradient-dark text-white shadow-lg"
+                  onClick={handleARClick}
+                >
+                  Iniciar AR
+                </Button>
+              </>
+            ) : (
+              <>
+                <Button 
+                  variant="outline" 
+                  className="hidden sm:flex border-ar-blue text-ar-blue hover:bg-ar-blue hover:text-white"
+                  onClick={() => navigate("/auth")}
+                >
+                  Entrar
+                </Button>
+                <Button 
+                  className="bg-ar-gradient hover:bg-ar-gradient-dark text-white shadow-lg"
+                  onClick={() => navigate("/auth")}
+                >
+                  Cadastrar
+                </Button>
+              </>
+            )}
             
             {/* Mobile Menu */}
             <Sheet>
@@ -148,15 +195,36 @@ const Header = () => {
                       {item.label}
                     </Button>
                   ))}
+
+                  {user && (
+                    <Button
+                      variant="ghost"
+                      className="justify-start w-full h-12 hover:bg-ar-gray-100 hover:text-ar-blue"
+                      onClick={handleSignOut}
+                    >
+                      <LogOut className="w-5 h-5 mr-3" />
+                      Sair
+                    </Button>
+                  )}
                   
                   <div className="border-t border-ar-gray-200 pt-4 mt-6">
-                    <Button 
-                      className="w-full bg-ar-gradient hover:bg-ar-gradient-dark text-white"
-                      onClick={() => navigate("/ar-viewer")}
-                    >
-                      <Camera className="w-5 h-5 mr-2" />
-                      Iniciar AR
-                    </Button>
+                    {user ? (
+                      <Button 
+                        className="w-full bg-ar-gradient hover:bg-ar-gradient-dark text-white"
+                        onClick={handleARClick}
+                      >
+                        <Camera className="w-5 h-5 mr-2" />
+                        Iniciar AR
+                      </Button>
+                    ) : (
+                      <Button 
+                        className="w-full bg-ar-gradient hover:bg-ar-gradient-dark text-white"
+                        onClick={() => navigate("/auth")}
+                      >
+                        <Camera className="w-5 h-5 mr-2" />
+                        Entrar / Cadastrar
+                      </Button>
+                    )}
                   </div>
                 </div>
               </SheetContent>

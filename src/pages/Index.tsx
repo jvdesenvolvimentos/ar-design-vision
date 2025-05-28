@@ -1,18 +1,18 @@
 
-import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
-import FurnitureCatalog from "@/components/FurnitureCatalog";
 import FeaturesSection from "@/components/FeaturesSection";
+import FurnitureCatalog from "@/components/FurnitureCatalog";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen">
       <Header />
       <HeroSection />
-      <FurnitureCatalog />
       <FeaturesSection />
+      <FurnitureCatalog />
       <CTASection />
       <Footer />
     </div>
