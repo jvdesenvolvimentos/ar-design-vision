@@ -1,95 +1,108 @@
 
+import { Camera, Edit, Move, Square } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Camera, ArrowRight } from "lucide-react";
-import { useNavigate } from "react-router-dom";
-import { useAuth } from "@/hooks/useAuth";
+import { Card } from "@/components/ui/card";
 
 const HeroSection = () => {
-  const navigate = useNavigate();
-  const { user } = useAuth();
-
-  const handleARClick = () => {
-    if (user) {
-      // Redireciona para o site externo se o usuário estiver logado
-      window.open("https://mobiliar.ct.ws/", "_blank");
-    } else {
-      // Redireciona para a página de login se não estiver logado
-      navigate("/auth");
-    }
-  };
-
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-ar-gray-50 to-white">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }} />
-      </div>
-      
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="text-center">
-          <div className="mb-8">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-ar-gradient rounded-2xl mb-6 shadow-lg">
-              <Camera className="w-10 h-10 text-white" />
+    <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-cyan-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Content */}
+          <div className="space-y-8 animate-fade-in">
+            <div className="space-y-4">
+              <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
+                Visualize móveis em
+                <span className="bg-ar-gradient bg-clip-text text-transparent"> Realidade Aumentada</span>
+              </h1>
+              <p className="text-xl text-gray-600 leading-relaxed">
+                Projete e visualize móveis sob medida em seus ambientes reais. 
+                Ajuste dimensões, escolha acabamentos e veja o resultado final antes mesmo de produzir.
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button size="lg" className="bg-ar-gradient hover:bg-ar-gradient-dark text-white px-8 py-4 text-lg">
+                <Camera className="w-5 h-5 mr-2" />
+                Começar Agora
+              </Button>
+              <Button size="lg" variant="outline" className="px-8 py-4 text-lg border-ar-blue text-ar-blue hover:bg-ar-blue hover:text-white transition-all">
+                Ver Demonstração
+              </Button>
+            </div>
+
+            {/* Features */}
+            <div className="grid grid-cols-2 gap-4 pt-8">
+              <div className="flex items-center space-x-3">
+                <div className="w-10 h-10 bg-ar-blue/10 rounded-lg flex items-center justify-center">
+                  <Square className="w-5 h-5 text-ar-blue" />
+                </div>
+                <span className="text-gray-700 font-medium">Móveis 3D</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <div className="w-10 h-10 bg-ar-cyan/10 rounded-lg flex items-center justify-center">
+                  <Edit className="w-5 h-5 text-ar-cyan" />
+                </div>
+                <span className="text-gray-700 font-medium">Personalização</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <div className="w-10 h-10 bg-ar-purple/10 rounded-lg flex items-center justify-center">
+                  <Move className="w-5 h-5 text-ar-purple" />
+                </div>
+                <span className="text-gray-700 font-medium">AR Interativa</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <div className="w-10 h-10 bg-green-500/10 rounded-lg flex items-center justify-center">
+                  <Camera className="w-5 h-5 text-green-500" />
+                </div>
+                <span className="text-gray-700 font-medium">Visualização Real</span>
+              </div>
             </div>
           </div>
-          
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-ar-gray-900 mb-6 leading-tight">
-            Visualize móveis em
-            <span className="block bg-ar-gradient bg-clip-text text-transparent">
-              Realidade Aumentada
-            </span>
-          </h1>
-          
-          <p className="text-xl md:text-2xl text-ar-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Transforme sua experiência de decoração com MobiliAR. 
-            Veja como os móveis ficam no seu espaço antes de comprar, 
-            usando a tecnologia de realidade aumentada mais avançada.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <Button 
-              size="lg" 
-              className="bg-ar-gradient hover:bg-ar-gradient-dark text-white px-8 py-4 text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
-              onClick={handleARClick}
-            >
-              <Camera className="w-6 h-6 mr-3" />
-              {user ? "Iniciar AR" : "Começar Grátis"}
-            </Button>
-            
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-2 border-ar-blue text-ar-blue hover:bg-ar-blue hover:text-white px-8 py-4 text-lg font-semibold transition-all duration-300"
-              onClick={() => navigate("/catalogo")}
-            >
-              Ver Catálogo
-              <ArrowRight className="w-5 h-5 ml-3" />
-            </Button>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div>
-              <div className="text-3xl font-bold text-ar-blue mb-2">500+</div>
-              <div className="text-ar-gray-600">Móveis Disponíveis</div>
+
+          {/* AR Preview Mockup */}
+          <div className="relative">
+            <div className="relative bg-ar-gradient rounded-3xl p-8 animate-float">
+              <div className="bg-white rounded-2xl p-6 space-y-4">
+                <div className="flex items-center justify-between">
+                  <h3 className="font-semibold text-gray-900">Sofá Personalizado</h3>
+                  <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                </div>
+                
+                <div className="bg-gray-100 rounded-xl h-40 flex items-center justify-center">
+                  <div className="text-center space-y-2">
+                    <Camera className="w-8 h-8 text-ar-blue mx-auto" />
+                    <p className="text-sm text-gray-600">Câmera AR Ativa</p>
+                  </div>
+                </div>
+
+                <div className="space-y-3">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-gray-600">Largura:</span>
+                    <span className="font-medium">2.20m</span>
+                  </div>
+                  <div className="flex justify-between text-sm">
+                    <span className="text-gray-600">Profundidade:</span>
+                    <span className="font-medium">0.90m</span>
+                  </div>
+                  <div className="flex justify-between text-sm">
+                    <span className="text-gray-600">Acabamento:</span>
+                    <span className="font-medium">Tecido Azul</span>
+                  </div>
+                </div>
+
+                <Button className="w-full bg-ar-gradient text-white">
+                  Visualizar em AR
+                </Button>
+              </div>
             </div>
-            <div>
-              <div className="text-3xl font-bold text-ar-blue mb-2">AR</div>
-              <div className="text-ar-gray-600">Tecnologia Avançada</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-ar-blue mb-2">24/7</div>
-              <div className="text-ar-gray-600">Suporte Online</div>
-            </div>
+
+            {/* Floating Elements */}
+            <div className="absolute -top-4 -right-4 w-16 h-16 bg-ar-cyan/20 rounded-full animate-pulse"></div>
+            <div className="absolute -bottom-4 -left-4 w-12 h-12 bg-ar-purple/20 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
           </div>
         </div>
       </div>
-      
-      {/* Floating Elements */}
-      <div className="absolute top-20 left-10 w-20 h-20 bg-ar-blue/10 rounded-full blur-xl animate-pulse"></div>
-      <div className="absolute bottom-20 right-10 w-32 h-32 bg-ar-blue/10 rounded-full blur-xl animate-pulse delay-1000"></div>
-      <div className="absolute top-1/2 right-20 w-16 h-16 bg-ar-blue/10 rounded-full blur-xl animate-pulse delay-500"></div>
     </section>
   );
 };
