@@ -1,5 +1,5 @@
 
-import { Camera, Menu, Search, Home, Folder, User, Phone, Palette, BookOpen, Settings } from "lucide-react";
+import { Camera, Menu, Search, Home, Folder, User, Phone, Palette, BookOpen, Settings, LogIn } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -12,9 +12,11 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "@/hooks/useAuth";
 
 const Header = () => {
   const navigate = useNavigate();
+  const { user, signOut } = useAuth();
 
   const menuItems = [
     { label: "Início", href: "/", icon: Home },
@@ -25,6 +27,11 @@ const Header = () => {
     { label: "Tutoriais", href: "/tutoriais", icon: BookOpen },
     { label: "Perfil", href: "/perfil", icon: User },
   ];
+
+  const handleSignOut = async () => {
+    await signOut();
+    navigate('/');
+  };
 
   return (
     <header className="bg-white border-b border-ar-gray-200 sticky top-0 z-50 shadow-sm">
@@ -94,19 +101,47 @@ const Header = () => {
 
           {/* Actions */}
           <div className="flex items-center space-x-4">
-            <Button 
-              variant="outline" 
-              className="hidden sm:flex border-ar-blue text-ar-blue hover:bg-ar-blue hover:text-white"
-              onClick={() => navigate("/projetos")}
-            >
-              Meus Projetos
-            </Button>
-            <Button 
-              className="bg-ar-gradient hover:bg-ar-gradient-dark text-white shadow-lg"
-              onClick={() => navigate("/ar-viewer")}
-            >
-              Iniciar AR
-            </Button>
+            {user ? (
+              <>
+                <Button 
+                  variant="outline" 
+                  className="hidden sm:flex border-ar-blue text-ar-blue hover:bg-ar-blue hover:text-white"
+                  onClick={() => navigate("/projetos")}
+                >
+                  Meus Projetos
+                </Button>
+                <Button 
+                  className="bg-ar-gradient hover:bg-ar-gradient-dark text-white shadow-lg"
+                  onClick={() => navigate("/ar-viewer")}
+                >
+                  Iniciar AR
+                </Button>
+                <Button
+                  variant="ghost"
+                  onClick={handleSignOut}
+                  className="hidden sm:flex text-ar-gray-600 hover:text-ar-blue"
+                >
+                  Sair
+                </Button>
+              </>
+            ) : (
+              <>
+                <Button 
+                  variant="outline" 
+                  className="hidden sm:flex border-ar-blue text-ar-blue hover:bg-ar-blue hover:text-white"
+                  onClick={() => navigate("/auth")}
+                >
+                  <LogIn className="w-4 h-4 mr-2" />
+                  Entrar
+                </Button>
+                <Button 
+                  className="bg-ar-gradient hover:bg-ar-gradient-dark text-white shadow-lg"
+                  onClick={() => navigate("/auth")}
+                >
+                  Cadastrar
+                </Button>
+              </>
+            )}
             
             {/* Mobile Menu */}
             <Sheet>
@@ -150,13 +185,41 @@ const Header = () => {
                   ))}
                   
                   <div className="border-t border-ar-gray-200 pt-4 mt-6">
-                    <Button 
-                      className="w-full bg-ar-gradient hover:bg-ar-gradient-dark text-white"
-                      onClick={() => navigate("/ar-viewer")}
-                    >
-                      <Camera className="w-5 h-5 mr-2" />
-                      Iniciar AR
-                    </Button>
+                    {user ? (
+                      <>
+                        <Button 
+                          className="w-full mb-3 bg-ar-gradient hover:bg-ar-gradient-dark text-white"
+                          onClick={() => navigate("/ar-viewer")}
+                        >
+                          <Camera className="w-5 h-5 mr-2" />
+                          Iniciar AR
+                        </Button>
+                        <Button
+                          variant="outline"
+                          className="w-full border-ar-gray-300 text-ar-gray-700 hover:bg-ar-gray-100"
+                          onClick={handleSignOut}
+                        >
+                          Sair
+                        </Button>
+                      </>
+                    ) : (
+                      <>
+                        <Button 
+                          variant="outline"
+                          className="w-full mb-3 border-ar-blue text-ar-blue hover:bg-ar-blue hover:text-white"
+                          onClick={() => navigate("/auth")}
+                        >
+                          <LogIn className="w-5 h-5 mr-2" />
+                          Entrar
+                        </Button>
+                        <Button 
+                          className="w-full bg-ar-gradient hover:bg-ar-gradient-dark text-white"
+                          onClick={() => navigate("/auth")}
+                        >
+                          Cadastrar
+                        </Button>
+                      </>
+                    )}
                   </div>
                 </div>
               </SheetContent>
