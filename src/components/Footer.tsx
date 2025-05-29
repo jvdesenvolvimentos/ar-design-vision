@@ -117,10 +117,10 @@ const Footer = () => {
 
         <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center">
           <p className="text-gray-400">
-            © 2024 MobiliAR. Todos os direitos reservados.
+            © 2025 MobiliAR. Todos os direitos reservados.
           </p>
           <p className="text-gray-400 mt-4 sm:mt-0">
-            Feito com ❤️ para revolucionar o design de móveis
+            Mobili AR – Inovação e Design em Cada Detalhe!
           </p>
         </div>
       </div>
