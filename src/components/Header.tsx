@@ -33,6 +33,10 @@ const Header = () => {
     navigate('/');
   };
 
+  const handleIniciarAR = () => {
+    window.open("https://app-mobiliar.netlify.app/", "_blank");
+  };
+
   return (
     <header className="bg-white border-b border-ar-gray-200 sticky top-0 z-50 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -112,7 +116,7 @@ const Header = () => {
                 </Button>
                 <Button 
                   className="bg-ar-gradient hover:bg-ar-gradient-dark text-white shadow-lg"
-                  onClick={() => navigate("/ar-viewer")}
+                  onClick={handleIniciarAR}
                 >
                   Iniciar AR
                 </Button>
@@ -136,9 +140,9 @@ const Header = () => {
                 </Button>
                 <Button 
                   className="bg-ar-gradient hover:bg-ar-gradient-dark text-white shadow-lg"
-                  onClick={() => navigate("/auth")}
+                  onClick={handleIniciarAR}
                 >
-                  Cadastrar
+                  Iniciar AR
                 </Button>
               </>
             )}
@@ -189,7 +193,7 @@ const Header = () => {
                       <>
                         <Button 
                           className="w-full mb-3 bg-ar-gradient hover:bg-ar-gradient-dark text-white"
-                          onClick={() => navigate("/ar-viewer")}
+                          onClick={handleIniciarAR}
                         >
                           <Camera className="w-5 h-5 mr-2" />
                           Iniciar AR
@@ -214,9 +218,9 @@ const Header = () => {
                         </Button>
                         <Button 
                           className="w-full bg-ar-gradient hover:bg-ar-gradient-dark text-white"
-                          onClick={() => navigate("/auth")}
+                          onClick={handleIniciarAR}
                         >
-                          Cadastrar
+                          Iniciar AR
                         </Button>
                       </>
                     )}

@@ -1,9 +1,12 @@
-
 import { Camera, Edit, Move, Square } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 
 const HeroSection = () => {
+  const handleIniciarAR = () => {
+    window.open("https://app-mobiliar.netlify.app/", "_blank");
+  };
+
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-cyan-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
@@ -22,7 +25,7 @@ const HeroSection = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-ar-gradient hover:bg-ar-gradient-dark text-white px-8 py-4 text-lg">
+              <Button size="lg" className="bg-ar-gradient hover:bg-ar-gradient-dark text-white px-8 py-4 text-lg" onClick={handleIniciarAR}>
                 <Camera className="w-5 h-5 mr-2" />
                 Começar Agora
               </Button>
@@ -91,7 +94,7 @@ const HeroSection = () => {
                   </div>
                 </div>
 
-                <Button className="w-full bg-ar-gradient text-white">
+                <Button className="w-full bg-ar-gradient text-white" onClick={handleIniciarAR}>
                   Visualizar em AR
                 </Button>
               </div>
