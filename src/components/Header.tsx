@@ -20,10 +20,7 @@ const Header = () => {
 
   const menuItems = [
     { label: "Início", href: "/", icon: Home },
-    { label: "Projetos", href: "/projetos", icon: Folder },
-    { label: "Catálogo", href: "/catalogo", icon: Search },
-    { label: "Ambientes", href: "/ambientes", icon: Home },
-    { label: "Materiais", href: "/materiais", icon: Palette },
+    { label: "Projetos", href: "/", icon: Folder },
     { label: "Tutoriais", href: "/tutoriais", icon: BookOpen },
     { label: "Perfil", href: "/perfil", icon: User },
   ];
