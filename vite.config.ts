@@ -2,8 +2,8 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
+import { viteStaticCopy } from "vite-plugin-static-copy";
 
-// https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
@@ -11,8 +11,16 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     react(),
-    mode === 'development' &&
-    componentTagger(),
+    mode === "development" && componentTagger(),
+    viteStaticCopy({
+      targets: [
+        {
+          src: "public/redirects.txt",
+          dest: ".",              // Copia para dist/
+          rename: "_redirects",   // Renomeia para _redirects
+        },
+      ],
+    }),
   ].filter(Boolean),
   resolve: {
     alias: {
