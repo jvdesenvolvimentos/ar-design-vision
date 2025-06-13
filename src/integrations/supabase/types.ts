@@ -9,6 +9,78 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
+      furniture_catalog: {
+        Row: {
+          available: boolean | null
+          category: string
+          colors: Json | null
+          created_at: string
+          description: string | null
+          dimensions: string
+          id: string
+          image_url: string | null
+          material: string
+          name: string
+          popular: boolean | null
+          price: number
+          updated_at: string
+        }
+        Insert: {
+          available?: boolean | null
+          category: string
+          colors?: Json | null
+          created_at?: string
+          description?: string | null
+          dimensions: string
+          id?: string
+          image_url?: string | null
+          material: string
+          name: string
+          popular?: boolean | null
+          price: number
+          updated_at?: string
+        }
+        Update: {
+          available?: boolean | null
+          category?: string
+          colors?: Json | null
+          created_at?: string
+          description?: string | null
+          dimensions?: string
+          id?: string
+          image_url?: string | null
+          material?: string
+          name?: string
+          popular?: boolean | null
+          price?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      furniture_categories: {
+        Row: {
+          active: boolean | null
+          count: number | null
+          created_at: string
+          id: string
+          name: string
+        }
+        Insert: {
+          active?: boolean | null
+          count?: number | null
+          created_at?: string
+          id?: string
+          name: string
+        }
+        Update: {
+          active?: boolean | null
+          count?: number | null
+          created_at?: string
+          id?: string
+          name?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           avatar_url: string | null
@@ -16,6 +88,7 @@ export type Database = {
           email: string | null
           full_name: string | null
           id: string
+          role: string | null
           updated_at: string | null
         }
         Insert: {
@@ -24,6 +97,7 @@ export type Database = {
           email?: string | null
           full_name?: string | null
           id: string
+          role?: string | null
           updated_at?: string | null
         }
         Update: {
@@ -32,6 +106,7 @@ export type Database = {
           email?: string | null
           full_name?: string | null
           id?: string
+          role?: string | null
           updated_at?: string | null
         }
         Relationships: []
@@ -80,7 +155,10 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      is_admin: {
+        Args: { user_id: string }
+        Returns: boolean
+      }
     }
     Enums: {
       [_ in never]: never
