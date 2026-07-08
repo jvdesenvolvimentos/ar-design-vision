@@ -1,0 +1,108 @@
+
+/* Ambientes Page Styles */
+.environments-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+}
+
+@media (min-width: 768px) {
+    .environments-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .environments-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.environment-card {
+    background: white;
+    border: 1px solid var(--ar-gray-200);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s;
+}
+
+.environment-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+.environment-image {
+    position: relative;
+    aspect-ratio: 16/9;
+    background: var(--ar-gray-100);
+}
+
+.environment-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.templates-badge {
+    position: absolute;
+    top: var(--spacing-sm);
+    right: var(--spacing-sm);
+    background: var(--ar-blue);
+    color: white;
+    padding: 4px 8px;
+    border-radius: var(--radius-sm);
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.environment-icon {
+    position: absolute;
+    bottom: var(--spacing-sm);
+    left: var(--spacing-sm);
+    width: 32px;
+    height: 32px;
+    background: var(--ar-gradient);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.environment-info {
+    padding: var(--spacing-lg);
+}
+
+.environment-info h3 {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--ar-gray-900);
+    margin-bottom: var(--spacing-sm);
+}
+
+.environment-info p {
+    font-size: 14px;
+    color: var(--ar-gray-600);
+    margin-bottom: var(--spacing-sm);
+}
+
+.category-badge {
+    display: inline-block;
+    background: transparent;
+    color: var(--ar-gray-700);
+    border: 1px solid var(--ar-gray-200);
+    padding: 4px 8px;
+    border-radius: var(--radius-sm);
+    font-size: 12px;
+    margin-bottom: var(--spacing-md);
+}
+
+.environment-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.environment-actions .btn:not(.btn-small) {
+    flex: 1;
+}

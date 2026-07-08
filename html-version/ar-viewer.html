@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizador AR - MobiliAR</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/ar-viewer.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <button class="btn-back">
+                    <i data-lucide="arrow-left"></i>
+                </button>
+                <h1>Visualizador AR</h1>
+                <div class="header-actions">
+                    <button class="btn btn-outline btn-small">
+                        <i data-lucide="save"></i>
+                        Salvar
+                    </button>
+                    <button class="btn btn-outline btn-small">
+                        <i data-lucide="share-2"></i>
+                        Compartilhar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="ar-viewer">
+        <div class="ar-container">
+            <div class="ar-viewer-area" id="arViewerArea">
+                <div class="ar-placeholder">
+                    <div class="ar-icon">
+                        <i data-lucide="camera"></i>
+                    </div>
+                    <h2>Visualização AR</h2>
+                    <p>Aponte sua câmera para o ambiente onde deseja visualizar o móvel</p>
+                    <button class="btn btn-primary btn-large" id="startArBtn">
+                        <i data-lucide="camera"></i>
+                        Iniciar AR
+                    </button>
+                </div>
+                <div class="ar-active" id="arActive" style="display: none;">
+                    <div class="ar-furniture-preview">
+                        <span id="furnitureName">Sofá</span>
+                    </div>
+                    <div class="ar-controls">
+                        <button class="btn btn-outline btn-small" id="exitArBtn">
+                            <i data-lucide="arrow-left"></i>
+                            Sair do AR
+                        </button>
+                        <button class="btn btn-outline btn-small">
+                            <i data-lucide="rotate-ccw"></i>
+                            Resetar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="control-panel">
+            <div class="panel-content">
+                <div class="control-section">
+                    <h3>
+                        <i data-lucide="settings"></i>
+                        Configurações
+                    </h3>
+                    
+                    <div class="control-group">
+                        <label>Tipo de Móvel</label>
+                        <select id="furnitureSelect">
+                            <option value="sofa">Sofá</option>
+                            <option value="mesa">Mesa de Centro</option>
+                            <option value="estante">Estante</option>
+                            <option value="cama">Cama</option>
+                            <option value="guarda-roupa">Guarda-roupa</option>
+                        </select>
+                    </div>
+
+                    <div class="control-group">
+                        <label>Material/Acabamento</label>
+                        <select id="materialSelect">
+                            <option value="madeira">Madeira Clara</option>
+                            <option value="madeira-escura">Madeira Escura</option>
+                            <option value="metal">Metal</option>
+                            <option value="vidro">Vidro</option>
+                            <option value="tecido">Tecido</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="control-section">
+                    <h3>Dimensões (cm)</h3>
+                    
+                    <div class="control-group">
+                        <label>Largura: <span id="widthValue">200</span> cm</label>
+                        <input type="range" id="widthSlider" min="50" max="300" value="200" step="5">
+                    </div>
+
+                    <div class="control-group">
+                        <label>Altura: <span id="heightValue">80</span> cm</label>
+                        <input type="range" id="heightSlider" min="30" max="200" value="80" step="5">
+                    </div>
+
+                    <div class="control-group">
+                        <label>Profundidade: <span id="depthValue">90</span> cm</label>
+                        <input type="range" id="depthSlider" min="30" max="150" value="90" step="5">
+                    </div>
+                </div>
+
+                <div class="control-actions">
+                    <button class="btn btn-primary">Aplicar Alterações</button>
+                    <button class="btn btn-outline">Salvar Configuração</button>
+                    <button class="btn btn-outline">Exportar Medidas</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/ar-viewer.js"></script>
+</body>
+</html>

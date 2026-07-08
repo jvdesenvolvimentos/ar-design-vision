@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Projetos - MobiliAR</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/projetos.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">
+                        <i data-lucide="camera"></i>
+                    </div>
+                    <span class="logo-text">MobiliAR</span>
+                </a>
+
+                <nav class="nav-desktop">
+                    <a href="index.html" class="nav-link">
+                        <i data-lucide="home"></i>
+                        Início
+                    </a>
+                    <a href="projetos.html" class="nav-link active">
+                        <i data-lucide="folder"></i>
+                        Projetos
+                    </a>
+                    <a href="catalogo.html" class="nav-link">
+                        <i data-lucide="search"></i>
+                        Catálogo
+                    </a>
+                    <a href="ambientes.html" class="nav-link">
+                        <i data-lucide="home"></i>
+                        Ambientes
+                    </a>
+                    <a href="materiais.html" class="nav-link">
+                        <i data-lucide="palette"></i>
+                        Materiais
+                    </a>
+                </nav>
+
+                <div class="header-actions">
+                    <button class="btn btn-outline">Meus Projetos</button>
+                    <button class="btn btn-primary">Iniciar AR</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="page-header">
+                <div class="page-title">
+                    <h1>Meus Projetos</h1>
+                    <p>Gerencie seus projetos de mobiliário em AR</p>
+                </div>
+                <button class="btn btn-primary">
+                    <i data-lucide="plus"></i>
+                    Novo Projeto
+                </button>
+            </div>
+
+            <div class="filters-section">
+                <div class="search-filter">
+                    <i data-lucide="search"></i>
+                    <input type="text" placeholder="Buscar projetos...">
+                </div>
+                <select class="filter-select">
+                    <option>Filtrar por ambiente</option>
+                    <option>Sala de Estar</option>
+                    <option>Quarto</option>
+                    <option>Escritório</option>
+                </select>
+                <select class="filter-select">
+                    <option>Status</option>
+                    <option>Concluído</option>
+                    <option>Em Progresso</option>
+                    <option>Rascunho</option>
+                </select>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7" alt="Sala de Estar Moderna">
+                        <span class="status-badge status-progress">Em Progresso</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>Sala de Estar Moderna</h3>
+                        <div class="project-meta">
+                            <span><i data-lucide="folder"></i> Sala de Estar</span>
+                            <span><i data-lucide="calendar"></i> 15/01/2024</span>
+                        </div>
+                        <p>5 itens</p>
+                        <div class="project-actions">
+                            <button class="btn btn-outline btn-small">
+                                <i data-lucide="eye"></i>
+                                Visualizar
+                            </button>
+                            <button class="btn btn-outline btn-small">
+                                <i data-lucide="edit"></i>
+                            </button>
+                            <button class="btn btn-outline btn-small">
+                                <i data-lucide="share-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85" alt="Quarto Minimalista">
+                        <span class="status-badge status-completed">Concluído</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>Quarto Minimalista</h3>
+                        <div class="project-meta">
+                            <span><i data-lucide="folder"></i> Quarto</span>
+                            <span><i data-lucide="calendar"></i> 10/01/2024</span>
+                        </div>
+                        <p>8 itens</p>
+                        <div class="project-actions">
+                            <button class="btn btn-outline btn-small">
+                                <i data-lucide="eye"></i>
+                                Visualizar
+                            </button>
+                            <button class="btn btn-outline btn-small">
+                                <i data-lucide="edit"></i>
+                            </button>
+                            <button class="btn btn-outline btn-small">
+                                <i data-lucide="share-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c" alt="Escritório Corporativo">
+                        <span class="status-badge status-draft">Rascunho</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>Escritório Corporativo</h3>
+                        <div class="project-meta">
+                            <span><i data-lucide="folder"></i> Escritório</span>
+                            <span><i data-lucide="calendar"></i> 08/01/2024</span>
+                        </div>
+                        <p>12 itens</p>
+                        <div class="project-actions">
+                            <button class="btn btn-outline btn-small">
+                                <i data-lucide="eye"></i>
+                                Visualizar
+                            </button>
+                            <button class="btn btn-outline btn-small">
+                                <i data-lucide="edit"></i>
+                            </button>
+                            <button class="btn btn-outline btn-small">
+                                <i data-lucide="share-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/projetos.js"></script>
+</body>
+</html>

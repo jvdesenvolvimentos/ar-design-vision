@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo - MobiliAR</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/catalogo.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">
+                        <i data-lucide="camera"></i>
+                    </div>
+                    <span class="logo-text">MobiliAR</span>
+                </a>
+
+                <nav class="nav-desktop">
+                    <a href="index.html" class="nav-link">
+                        <i data-lucide="home"></i>
+                        Início
+                    </a>
+                    <a href="projetos.html" class="nav-link">
+                        <i data-lucide="folder"></i>
+                        Projetos
+                    </a>
+                    <a href="catalogo.html" class="nav-link active">
+                        <i data-lucide="search"></i>
+                        Catálogo
+                    </a>
+                    <a href="ambientes.html" class="nav-link">
+                        <i data-lucide="home"></i>
+                        Ambientes
+                    </a>
+                    <a href="materiais.html" class="nav-link">
+                        <i data-lucide="palette"></i>
+                        Materiais
+                    </a>
+                </nav>
+
+                <div class="header-actions">
+                    <button class="btn btn-outline">Meus Projetos</button>
+                    <button class="btn btn-primary">Iniciar AR</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="page-header">
+                <h1>Catálogo de Móveis</h1>
+                <p>Explore nossa coleção completa de móveis em AR</p>
+            </div>
+
+            <div class="catalog-layout">
+                <aside class="filters-sidebar">
+                    <div class="filters-section">
+                        <h3>Filtros</h3>
+                        
+                        <div class="filter-group">
+                            <h4>Categorias</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox"> Todos (156)</label>
+                                <label><input type="checkbox"> Sofás (24)</label>
+                                <label><input type="checkbox"> Poltronas (18)</label>
+                                <label><input type="checkbox"> Mesas (32)</label>
+                                <label><input type="checkbox"> Cadeiras (28)</label>
+                            </div>
+                        </div>
+
+                        <div class="filter-group">
+                            <h4>Preço</h4>
+                            <input type="text" placeholder="Mínimo">
+                            <input type="text" placeholder="Máximo">
+                        </div>
+
+                        <div class="filter-group">
+                            <h4>Material</h4>
+                            <select>
+                                <option>Selecionar material</option>
+                                <option>Madeira</option>
+                                <option>Tecido</option>
+                                <option>Metal</option>
+                                <option>Couro</option>
+                            </select>
+                        </div>
+
+                        <button class="btn btn-primary">Aplicar Filtros</button>
+                    </div>
+                </aside>
+
+                <div class="catalog-content">
+                    <div class="search-controls">
+                        <div class="search-bar">
+                            <i data-lucide="search"></i>
+                            <input type="text" placeholder="Buscar móveis...">
+                        </div>
+                        <select class="sort-select">
+                            <option>Ordenar por</option>
+                            <option>Relevância</option>
+                            <option>Menor preço</option>
+                            <option>Maior preço</option>
+                        </select>
+                        <div class="view-toggle">
+                            <button class="view-btn active" data-view="grid">
+                                <i data-lucide="grid"></i>
+                            </button>
+                            <button class="view-btn" data-view="list">
+                                <i data-lucide="list"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="products-grid" id="productsGrid">
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7" alt="Sofá Moderno">
+                                <button class="favorite-btn">
+                                    <i data-lucide="heart"></i>
+                                </button>
+                            </div>
+                            <div class="product-info">
+                                <h3>Sofá Moderno 3 Lugares</h3>
+                                <span class="category-badge">Sofás</span>
+                                <p class="price">R$ 2.850,00</p>
+                                <p class="material">Material: Tecido Premium</p>
+                                <p class="dimensions">Dimensões: 220x90x85cm</p>
+                                <div class="color-options">
+                                    <span class="color-tag">Cinza</span>
+                                    <span class="color-tag">Bege</span>
+                                    <span class="color-tag">Azul</span>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="btn btn-primary">
+                                        <i data-lucide="eye"></i>
+                                        Ver em AR
+                                    </button>
+                                    <button class="btn btn-outline btn-small">
+                                        <i data-lucide="shopping-cart"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237" alt="Mesa de Centro">
+                                <button class="favorite-btn active">
+                                    <i data-lucide="heart"></i>
+                                </button>
+                            </div>
+                            <div class="product-info">
+                                <h3>Mesa de Centro Redonda</h3>
+                                <span class="category-badge">Mesas</span>
+                                <p class="price">R$ 890,00</p>
+                                <p class="material">Material: Madeira Maciça</p>
+                                <p class="dimensions">Dimensões: 80x80x45cm</p>
+                                <div class="color-options">
+                                    <span class="color-tag">Natural</span>
+                                    <span class="color-tag">Branco</span>
+                                    <span class="color-tag">Preto</span>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="btn btn-primary">
+                                        <i data-lucide="eye"></i>
+                                        Ver em AR
+                                    </button>
+                                    <button class="btn btn-outline btn-small">
+                                        <i data-lucide="shopping-cart"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7" alt="Estante Industrial">
+                                <span class="unavailable-badge">Indisponível</span>
+                                <button class="favorite-btn">
+                                    <i data-lucide="heart"></i>
+                                </button>
+                            </div>
+                            <div class="product-info">
+                                <h3>Estante Industrial</h3>
+                                <span class="category-badge">Estantes</span>
+                                <p class="price">R$ 1.250,00</p>
+                                <p class="material">Material: Metal e Madeira</p>
+                                <p class="dimensions">Dimensões: 180x35x200cm</p>
+                                <div class="color-options">
+                                    <span class="color-tag">Preto</span>
+                                    <span class="color-tag">Branco</span>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="btn btn-primary" disabled>
+                                        <i data-lucide="eye"></i>
+                                        Ver em AR
+                                    </button>
+                                    <button class="btn btn-outline btn-small" disabled>
+                                        <i data-lucide="shopping-cart"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pagination">
+                        <button class="btn btn-outline">Anterior</button>
+                        <button class="btn btn-primary">1</button>
+                        <button class="btn btn-outline">2</button>
+                        <button class="btn btn-outline">3</button>
+                        <button class="btn btn-outline">Próximo</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/catalogo.js"></script>
+</body>
+</html>
